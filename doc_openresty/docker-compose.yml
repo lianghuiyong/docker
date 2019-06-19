@@ -1,0 +1,15 @@
+version: "3.6"
+services:
+    openresty_frpc:
+      # 指定 Dockerfile 所在文件夹的路径
+      build: .
+      image: registry.cn-shenzhen.aliyuncs.com/better/openresty:1.0.0
+      container_name: openresty
+      restart: always
+      ports: 
+        - 22:22
+        - 80:80
+      volumes:
+        - ./opt/:/root/:rw
+      environment:
+        - TZ=Asia/Shanghai
