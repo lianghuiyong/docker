@@ -1,0 +1,44 @@
+version: "3.6"
+services:
+    openresty_frpc:
+      # 指定 Dockerfile 所在文件夹的路径
+      build: doc_openresty_frpc/
+      image: openresty_frpc
+      container_name: openresty_frpc
+      restart: always
+      # update_config:
+      #   parallelism: 2
+      #   delay: 10s
+      ports: 
+        - 22:22
+        - 80:80
+      volumes:
+        - ./doc_openresty_frpc/conf:/root/conf:rw
+        - ./doc_openresty_frpc/log/:/root/log/:rw
+        - ./opt/web/:/root/web/:rw
+        - ./opt/test/:/root/test/:rw
+        - ./opt/cloud/:/root/cloud/:rw
+      environment:
+        - TZ=Asia/Shanghai
+          
+    # jenkins:
+    #   # 指定 Dockerfile 所在文件夹的路径
+    #   build: doc_jenkins/
+    #   image: jenkins
+    #   container_name: jenkins
+    #   restart: always
+    #   ports: 
+    #     - 8080:8080
+    #   expose:
+    #     - 8080
+    #   volumes:
+    #     - ./doc_jenkins/jenkins_home/:/var/jenkins_home:rw
+
+    # tensorflow:
+    #   # 指定 Dockerfile 所在文件夹的路径
+    #   build: doc_tensorflow/
+    #   image: tensorflow
+    #   container_name: tensorflow
+    #   restart: always
+    #   ports: 
+    #     - 8888:8888

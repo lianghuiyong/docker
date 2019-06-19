@@ -1,0 +1,8 @@
+.DS_Store
+*.log
+x_push.sh
+doc_jenkins/jenkins_home/
+doc_jenkins/opt/
+doc_jenkins_java_web/opt/
+
+doc_openresty_frpc/conf/

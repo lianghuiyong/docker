@@ -1,0 +1,13 @@
+version: "3.6"
+services:
+    jenkins:
+      # 指定 Dockerfile 所在文件夹的路径
+      build: .
+      image: registry.cn-shenzhen.aliyuncs.com/better/jenkins:1.0.0
+      container_name: jenkins
+      ports:
+        - "8888:8080"
+      volumes:
+        - ./opt/:/opt:rw
+        - ./jenkins_home/:/var/jenkins_home:rw
+        - /Users/lianghuiyong/Library/Android/sdk:/android/sdk_tools:rw

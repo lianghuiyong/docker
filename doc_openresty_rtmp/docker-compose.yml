@@ -1,0 +1,14 @@
+version: "3.6"
+services:
+    openresty_rtmp:
+      # 指定 Dockerfile 所在文件夹的路径
+      build: .
+      image: openresty_rtmp
+      container_name: openresty_rtmp
+      ports:
+        - "80:80"
+        - "1935:1935"
+      volumes:
+        - ./conf:/root/conf:rw
+        - ./web:/root/web:rw
+        - ./static:/static:rw

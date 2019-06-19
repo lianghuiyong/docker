@@ -1,0 +1,12 @@
+version: "3.6"
+services:
+    jenkins:
+      # 指定 Dockerfile 所在文件夹的路径
+      build: .
+      image: jenkins
+      container_name: jenkins
+      ports:
+        - "8080:8080"
+        - "80:80"
+      volumes:
+        - ./opt/:/opt:rw
